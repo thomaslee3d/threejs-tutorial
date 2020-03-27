@@ -32,12 +32,12 @@ let geometry = new THREE.BoxGeometry(2,2,2);
 let cubeMaterials = [
 
     // if one of the sides is left out you get a open sided box
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/x.png'), side: THREE.DoubleSide}), // right
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/o.png'), side: THREE.DoubleSide}), // left
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}), // top
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}), // bottom
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}), // front
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}) // back
+    new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load('img/x.png'), side: THREE.DoubleSide}), // right
+    new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load('img/o.png'), side: THREE.DoubleSide}), // left
+    new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}), // top
+    new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}), // bottom
+    new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}), // front
+    new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}) // back
  
 ]
 
@@ -52,6 +52,12 @@ scene.add(cube);
 
 //camera position
 camera.position.z = 3;
+
+//lighting 
+let ambientLight = new THREE.AmbientLight(0xffffff,3.0);
+
+//add light
+scene.add(ambientLight);
 
 //game logic
 let update = function(){
