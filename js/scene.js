@@ -30,12 +30,14 @@ let geometry = new THREE.BoxGeometry(2,2,2);
 //flat color material  or wirframe
 //let material = new THREE.MeshBasicMaterial({color:0xffffff,wireframe:true});
 let cubeMaterials = [
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/x.png'), side: THREE.DoubleSide}),
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/o.png'), side: THREE.DoubleSide}),
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}),
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}),
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}),
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide})
+
+    // if one of the sides is left out you get a open sided box
+    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/x.png'), side: THREE.DoubleSide}), // right
+    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/o.png'), side: THREE.DoubleSide}), // left
+    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}), // top
+    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}), // bottom
+    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}), // front
+    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}) // back
  
 ]
 
