@@ -17,6 +17,11 @@ window.addEventListener('resize',function(){
     camera.updateProjectionMatrix();
 });
 
+
+//OrbitControls,js file is in the three.js-master file in three.js-master/examples/js/controls/ 
+//control the scene make sure to include OrbitControls.js in index.html
+controls = new THREE.OrbitControls(camera, renderer.domElement)
+
 //cube geometry
 let geometry = new THREE.BoxGeometry(1,1,1);
 let material = new THREE.MeshBasicMaterial({color:0xffffff,wireframe:true});
@@ -44,7 +49,7 @@ let render = function(){
 let gameLoop = function(){
 
     requestAnimationFrame(gameLoop);
-    
+
     update();
     render();
 
