@@ -18,14 +18,34 @@ window.addEventListener('resize',function(){
 });
 
 
+//controls
 //OrbitControls,js file is in the three.js-master file in three.js-master/examples/js/controls/ 
 //control the scene make sure to include OrbitControls.js in index.html
 controls = new THREE.OrbitControls(camera, renderer.domElement)
 
 //cube geometry
-let geometry = new THREE.BoxGeometry(1,1,1);
-let material = new THREE.MeshBasicMaterial({color:0xffffff,wireframe:true});
+let geometry = new THREE.BoxGeometry(2,2,2);
+
+
+//flat color material  or wirframe
+//let material = new THREE.MeshBasicMaterial({color:0xffffff,wireframe:true});
+let cubeMaterials = [
+    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/x.png'), side: THREE.DoubleSide}),
+    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/o.png'), side: THREE.DoubleSide}),
+    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}),
+    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}),
+    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide}),
+    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/boxside.png'), side: THREE.DoubleSide})
+ 
+]
+
+//place material to the geometry
+let material = new THREE.MeshFaceMaterial(cubeMaterials);
+
+//build Mesh geometry and material 
 let cube = new THREE.Mesh(geometry,material);
+
+//add mesh to scene
 scene.add(cube);
 
 //camera position
